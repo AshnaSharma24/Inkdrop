@@ -17,9 +17,7 @@ export const getNoteById = asyncHandler(async (req, res) => {
 // POST /api/notes
 export const createNote = asyncHandler(async (req, res) => {
   const { title, content } = req.body;
-  if (!title?.trim() || !content?.trim()) {
-    return res.status(400).json({ success: false, message: "Title and content are required" });
-  }
+  // No validation here anymore — validateNote middleware handles it
   const note = await Note.create({ title, content });
   res.status(201).json({ success: true, data: note });
 });
