@@ -58,12 +58,27 @@ const NoteDetailPage = () => {
   };
 
   if (loading) {
-    return (
-      <div className="min-h-screen bg-base-200 flex items-center justify-center">
-        <LoaderIcon className="animate-spin size-10" />
+  return (
+    <div className="min-h-screen bg-slate-900">
+      <div className="container mx-auto px-4 py-8">
+        <div className="max-w-2xl mx-auto animate-pulse">
+          <div className="h-10 bg-base-300 rounded w-32 mb-6" />
+          <div className="card border-2 border-info">
+            <div className="card-body">
+              <div className="h-4 bg-base-300 rounded w-16 mb-2" />
+              <div className="h-10 bg-base-300 rounded w-full mb-6" />
+              <div className="h-4 bg-base-300 rounded w-20 mb-2" />
+              <div className="h-32 bg-base-300 rounded w-full mb-4" />
+              <div className="flex justify-end">
+                <div className="h-10 bg-base-300 rounded w-28" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
   return (
     <div className="min-h-screen bg-slate-900">
@@ -86,7 +101,7 @@ const NoteDetailPage = () => {
                   <span className='label-text'>Title</span>
                 </label>
                 <input type="text" placeholder="Note Title"
-                  className="input input-bordered border-info/40 bg-slate-900"
+                  className="input input-bordered bg-slate-900"
                   value={note.title}
                   onChange={(e) => setNote({ ...note, title: e.target.value })}
                 />
@@ -96,7 +111,7 @@ const NoteDetailPage = () => {
                   <span className='label-text'>Content</span>
                 </label>
                 <textarea placeholder="Write your note here"
-                  className="textarea textarea-bordered border-info/40 h-32 bg-slate-900"
+                  className="textarea textarea-bordered h-32 bg-slate-900"
                   value={note.content}
                   onChange={(e) => setNote({ ...note, content: e.target.value })}
                 />
